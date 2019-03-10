@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "RNHouseSansW03-Regular";
+	src: url("/fonts/RNHouseSansW03-Regular.woff") format("woff")
+}
+
+body {
+	font-family: RNHouseSansW03-regular, Calibri, Geneva, sans-serif
+}
+
+h1 {
+	text-align: center;
+}
+
+#canvas_div {
+	/*position: relative;*/
+	overflow: scroll;
+	width: 655px;
+	height: 600px;
+	border: 2px solid blue;
+}
+
+#pdf_canvas {
+	/*position: absolute;*/
+	border: 1px solid red;
+	max-width: 100%;
+}
+
+#id_img {
+	max-width: 100%;
+}
+
+#success_text {
+	color: red;
+}
+
+.btn-group.btn-group-crop {
+	margin: 10px;
+}
+
+.btn.btn-success {
+	background-color: gray;
+}
+
+.container {
+	padding-left: 0px;
+}
+
+.btn.btn-primary {
+	background-color: white;
+	color: #0a2f64;
+}
+
+.img-preview {
+	/*
+  float: left;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  overflow: hidden;*/
+	
+}
+
+.img-preview>img {
+	/*max-width: 100%;*/
+	
+}
+
+.preview-lg {
+	/* height: 9rem;
+  width: 16rem; */
+	
+}
+
+.crop_preview {
+	border: 2px solid black;
+	float: right;
+	position: absolute;
+	top: 450px;
+	right: 10px;
+	overflow: hidden;
+	max-width: 100%;
+	height: 24rem;
+	width: 16rem;
+}
+
+.entry_details {
+	text-align: center;
+}
+
+.btn-group-submit-div {
+	width:100%;
+	text-align: center;
+}
+
+.btn-group-submit {
+	
+	width:80%;
+	height: 40px;
+	margin-left: 90px;
+}
+
+.btn.btn-success.btn-group-submit {
+	margin-left: 90px;
+}
+
+.heading {
+	background-color: #0a2f64;;
+	color: white;
+	text-align: center;
+	padding:10px;
+	font-size: 20px;
+	
+}

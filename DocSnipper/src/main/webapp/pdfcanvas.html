@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PDF Canvas</title>
+    <script src="js/pdf.js"></script>
+    <script src="js/pdfconv.js"></script>
+    <script src="js/cropper.js"></script>
+    <script src="https://fengyuanchen.github.io/js/common.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.3/cropper.css">
+
+    <style>
+      #canvas_div {
+        //position:relative;
+        overflow:scroll;
+        width:600px;
+        height:600px;
+        border:2px solid blue;
+      }
+
+      #pdf_canvas {
+        //position:absolute;
+        border:1px solid red;
+        max-width: 100%;
+      }
+
+      #id_img {
+        max-width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+      <p>Canvas</p>
+      <div id="canvas_div">
+        <canvas id="pdf_canvas" style="border:2px solid black">
+        </canvas>
+      </div>
+      <br>
+      <br>
+
+      <button id="cropit" name="cropping_button" onclick="crop()"> CROP </button>
+
+
+      <br>
+      <br>
+      <br>
+
+      <a href="" id="link_download"></a>
+      <script src="js/pdfconv_crop.js"></script>
+
+
+  </body>
+</html>
