@@ -16,9 +16,10 @@ h1 {
 #canvas_div {
 	/*position: relative;*/
 	overflow: scroll;
-	width: 655px;
-	height: 600px;
-	border: 2px solid blue;
+	width: 1000px;
+	height: 1000px;
+	border: 2px solid black;
+	margin-left: 50px;
 }
 
 #pdf_canvas {
@@ -27,12 +28,13 @@ h1 {
 	max-width: 100%;
 }
 
-#id_img {
-	max-width: 100%;
+#pdf_canvas:first-child {
+	width:100%;	
 }
-
 #success_text {
+	padding:20px;
 	color: red;
+	font-size: 24px;
 }
 
 .btn-group.btn-group-crop {
@@ -76,39 +78,64 @@ h1 {
 	border: 2px solid black;
 	float: right;
 	position: absolute;
-	top: 450px;
+	top: 650px;
 	right: 10px;
 	overflow: hidden;
 	max-width: 100%;
-	height: 24rem;
-	width: 16rem;
+	height: 25rem;
+	width: 25rem;
 }
 
 .entry_details {
 	text-align: center;
+	font-size: 28px;
 }
 
 .btn-group-submit-div {
-	width:100%;
+	width: 100%;
 	text-align: center;
 }
 
 .btn-group-submit {
-	
-	width:80%;
-	height: 40px;
-	margin-left: 90px;
+	width: 80%;
+	//height: 40px;
+	margin-left: 120px;
 }
 
 .btn.btn-success.btn-group-submit {
-	margin-left: 90px;
+	margin-left: 120px;
+	font-size: 28px;
 }
 
 .heading {
-	background-color: #0a2f64;;
+	background-color: #0a2f64;
 	color: white;
 	text-align: center;
-	padding:10px;
+	/*padding: 30px;*/
 	font-size: 20px;
-	
+	margin: 10px;
+	height: 100px;
+	border-radius: 5px;
+}
+
+.heading span {
+	font-size: 30px;
+	line-height: 100px;
+	vertical-align: middle;
+}
+
+.actions-container{
+	padding-left: 50px;	
+}
+
+.btn-primary {
+	font-size: 35px;
+}
+
+.btn.btn-success {
+	font-size: 20px;
+}
+
+.col-md-9.docs-buttons .btn-group {
+	margin-right: 20px;
 }

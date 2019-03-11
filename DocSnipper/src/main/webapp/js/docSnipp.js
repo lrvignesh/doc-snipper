@@ -26,7 +26,7 @@ var loadingTask = pdfjsLib.getDocument(sampleArr);
 loadingTask.promise.then(
   function(pdf) {
     pdf.getPage(1).then(function(page) {
-      var scale = 5;
+      var scale = 10;
       var viewport = page.getViewport(scale);
 
       var canvas = $('#pdf_canvas')[0];
@@ -60,7 +60,8 @@ function loadCropperScript() {
     background: false,
     preview: '.crop_preview',
     autoCropArea: 0.40,
-    aspectRatio: 16 / 9
+    aspectRatio: 16 / 9,
+    viewMode:1
   });
 
 }

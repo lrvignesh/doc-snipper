@@ -49,7 +49,7 @@ public class SignatureController {
 		response.setContentType("image/tiff");
 		Optional<CustSignDocument> signature = signService.getSignature(custSignDocument);
 		CustSignDocument custSign = signature.get();
-		
+		response.setHeader("Content-Disposition", "attachment; filename="+custSign.getSignId()+".tiff");
 		InputStream is = new ByteArrayInputStream(custSign.getSign());
 		try {
 			IOUtils.copy(is, response.getOutputStream());

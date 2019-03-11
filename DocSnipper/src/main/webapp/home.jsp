@@ -22,7 +22,7 @@
 	<c:if test="${not empty fn:trim(signId)}">
 		
 		<div id="success_text" >
-			Signature Added Successfully. <br>
+			Signature Added Successfully <br>
 			Signature Id : ${signId}
 		</div>
 		
@@ -32,15 +32,17 @@
 		
 		<div class="entry_details">
 			<span> Account Number </span>
-			<span><input type="text" name="accNo"><span>
+			<span><input type="text" name="accNo" required="required"></span>
 			
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 						
 			<span> Sort Code </span>
-			<span><input type="text" name="sortCode"></span>
+			<span><input type="text" name="sortCode" required="required"></span>
 			
 		</div>	
+		<br>
 		
-  <div class="container">	
+  <div class="actions-container">	
 	<div class="row" id="actions">
 		<div class="btn-group btn-group-crop btn-group-submit-div">
           <button type="submit" class="btn btn-success btn-group-submit">
