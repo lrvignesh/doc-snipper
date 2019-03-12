@@ -3,6 +3,8 @@ package com.doc.snip.controller;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
@@ -44,18 +46,35 @@ public class SignatureController {
 	}
 	
 	@RequestMapping("/getSignature")
-	public void getSignature(CustSignDocument custSignDocument,HttpServletResponse response) {
+	public ModelAndView getSignature(CustSignDocument custSignDocument,HttpServletResponse response) {
 		
-		response.setContentType("image/tiff");
+		ModelAndView mv = new ModelAndView();
 		Optional<CustSignDocument> signature = signService.getSignature(custSignDocument);
-		CustSignDocument custSign = signature.get();
-		response.setHeader("Content-Disposition", "attachment; filename="+custSign.getSignId()+".tiff");
-		InputStream is = new ByteArrayInputStream(custSign.getSign());
-		try {
-			IOUtils.copy(is, response.getOutputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
+		if(signature.isPresent()) {
+		
+			CustSignDocument custSign = signature.get();
+			response.setContentType("image/tiff");
+			response.setHeader("Content-Disposition", "attachment; filename="+custSign.getSignId()+".tiff");
+			InputStream is = new ByteArrayInputStream(custSign.getSign());
+			try {
+				IOUtils.copy(is, response.getOutputStream());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			
+			String errorMessage = "No Details Found. Please check again";
+			boolean isError = true;
+
+			Map<String, String> modelMap = new HashMap<>();
+			modelMap.put("searchType", "Sign");
+			modelMap.put("isError", String.valueOf(isError));
+			modelMap.put("errorMessage", errorMessage);
+			mv.setViewName("/home.jsp");
+			mv.addAllObjects(modelMap);
 		}
+
+		return mv;
 	}
 
 }

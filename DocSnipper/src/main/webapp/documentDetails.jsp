@@ -16,6 +16,8 @@
 <script src="/js/pdf.js"></script> 
 <script src="/js/cropper.js"></script>
 <script src="/js/jquery.min.js" ></script>
+<script src=/js/ToProgress.min.js></script>
+
 
 </head>
 <body>
@@ -23,6 +25,8 @@
 	<div class="heading">
 		<span>Document Snipper</span>
 	</div>
+	<br>
+	<div id="progress"></div>
 	<br>
 	<div class="entry_details">
 			<span> Account Number </span>
@@ -152,7 +156,7 @@
    <div class="actions-container">	
 	<div class="row" id="actions">
 		<div class="btn-group btn-group-crop">
-          <button type="button" class="btn btn-success" id="cropdownload">
+          <button type="button" class="btn btn-success btn-crop-action" id="cropdownload">
             <span class="docs-tooltip">
                Crop & Download
             </span>
@@ -160,7 +164,7 @@
          </div>
         
      	<div class="btn-group btn-group-crop">
-          <button type="button" class="btn btn-success" id="cropsend">
+          <button type="button" class="btn btn-success btn-crop-action" id="cropsend">
             <span class="docs-tooltip">
                Crop & Send
             </span>

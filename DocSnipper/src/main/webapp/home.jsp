@@ -18,18 +18,26 @@
 	</div>
 	
 	<br>
-	<br>
+	
+	<div class="function_heading">
+		<span>Document Search</span>
+	</div>
+	
+	<c:if test="${not empty fn:trim(isError) && isError == 'true' && searchType=='Doc'}">
+		<div id="error_text" >
+			${errorMessage}
+		</div>
+	</c:if>
+	
 	<c:if test="${not empty fn:trim(signId)}">
-		
 		<div id="success_text" >
 			Signature Added Successfully <br>
 			Signature Id : ${signId}
 		</div>
-		
 	</c:if>
 	
+			
 	<form action="getCustomerDoc" method="post">
-		
 		<div class="entry_details">
 			<span> Account Number </span>
 			<span><input type="text" name="accNo" required="required"></span>
@@ -41,20 +49,54 @@
 			
 		</div>	
 		<br>
-		
-  <div class="actions-container">	
-	<div class="row" id="actions">
-		<div class="btn-group btn-group-crop btn-group-submit-div">
-          <button type="submit" class="btn btn-success btn-group-submit">
-            <span class="docs-tooltip">
-               Fetch
-            </span>
-          </button>
-         </div>
-       </div>
-      </div>
-	
+  	 	<div class="actions-container">	
+			<div class="btn-group btn-group-crop btn-group-submit-div">
+	          <button type="submit" class="btn btn-success btn-group-submit">
+	            <span class="docs-tooltip">
+	               Fetch
+	            </span>
+	          </button>
+	         </div>
+      	</div>
 	</form>
+	
+	<br>
+	<br>
+	
+	<hr>
+	
+	<br>
+	<br>
+	
+	<div class="function_heading">
+		<span>Signature Search</span>
+	</div>
+	
+	<c:if test="${not empty fn:trim(isError) && isError == 'true' && searchType=='Sign'}">
+		<div id="error_text" >
+			${errorMessage}
+		</div>
+	</c:if>
+	
+	<form action="getSignature" method="post">
+		<div class="entry_details">
+			<span> Signature Id </span>
+			<span><input type="text" name="signId" required="required"></span>
+		</div>	
+		<br>
+  	 	<div class="actions-container">	
+			<div class="btn-group btn-group-crop btn-group-submit-div">
+	          <button type="submit" class="btn btn-success btn-group-submit">
+	            <span class="docs-tooltip">
+	               Fetch
+	            </span>
+	          </button>
+	         </div>
+      	</div>
+	</form>
+	
+	<br>
+	<br>
 
 </body>
 </html>

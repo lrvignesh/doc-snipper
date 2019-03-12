@@ -29,20 +29,63 @@ h1 {
 }
 
 #pdf_canvas:first-child {
-	width:100%;	
-}
-#success_text {
-	padding:20px;
-	color: red;
-	font-size: 24px;
+	width: 100%;
 }
 
+#success_text {
+	padding: 20px;
+	color: #0a2f64;
+	font-size: 24px;
+	text-align: center;
+}
+
+#error_text {
+	padding: 20px;
+	color: red;
+	font-size: 24px;
+	text-align: center;
+}
+
+.function_heading {
+	text-align: center;
+	font-size: 23px;
+	//background-color: #27ae60;
+	padding: 4px;
+	width: 50%;
+	height: 48px;
+	margin: 0 auto;
+	margin-bottom: 18px;
+	border-radius: 5px;
+	color: black;
+	border:1px solid black;
+}
+
+input[name='signId'] {
+	width: 650px;
+}
+
+input[type='text'] {
+	text-align: center;
+	border-radius: 5px;
+}
+
+hr {
+	height: 1px;
+	background-color: black;
+	width: 90%;
+}
+
+}
 .btn-group.btn-group-crop {
 	margin: 10px;
 }
 
 .btn.btn-success {
-	background-color: gray;
+	background-color: darkslategray;
+}
+
+.btn.btn-success.btn-crop-action {
+	margin-left: 10px;
 }
 
 .container {
@@ -97,8 +140,8 @@ h1 {
 }
 
 .btn-group-submit {
-	width: 80%;
-	//height: 40px;
+	width: 80%; //
+	height: 40px;
 	margin-left: 120px;
 }
 
@@ -124,8 +167,8 @@ h1 {
 	vertical-align: middle;
 }
 
-.actions-container{
-	padding-left: 50px;	
+.actions-container {
+	padding-left: 50px;
 }
 
 .btn-primary {

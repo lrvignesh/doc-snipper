@@ -1,6 +1,8 @@
 package com.doc.snip.controller;
 
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +26,28 @@ public class DocumentController {
 
 		Optional<CustDocument> customerDocDetails = docService.findCustomerDoc(custDocument);
 		System.out.println("Fetched Customer Details " + customerDocDetails);
+
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/documentDetails.jsp");
-		mv.addObject("customerDocDetails", customerDocDetails.get());
 
-		byte[] encode = Base64.getEncoder().encode(customerDocDetails.get().getDocument());
-		String encodedString = new String(encode);
+		if (customerDocDetails.isPresent()) {
+			mv.setViewName("/documentDetails.jsp");
+			mv.addObject("customerDocDetails", customerDocDetails.get());
 
-		mv.addObject("encodedString", encodedString);
+			byte[] encode = Base64.getEncoder().encode(customerDocDetails.get().getDocument());
+			String encodedString = new String(encode);
+
+			mv.addObject("encodedString", encodedString);
+		} else {
+			String errorMessage = "No Details Found. Please check again";
+			boolean isError = true;
+
+			Map<String, String> modelMap = new HashMap<>();
+			modelMap.put("searchType", "Doc");
+			modelMap.put("isError", String.valueOf(isError));
+			modelMap.put("errorMessage", errorMessage);
+			mv.setViewName("/home.jsp");
+			mv.addAllObjects(modelMap);
+		}
 
 		return mv;
 

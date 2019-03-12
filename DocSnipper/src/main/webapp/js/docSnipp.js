@@ -1,3 +1,15 @@
+var progressBar;
+
+var options = {
+		 id: 'top_progress_bar',
+		 color: '#F44336', 
+		 height: '5px', 
+		 duration: 0.2
+		}
+
+var selector = '#progress'; 
+progressBar = new ToProgress(options,selector);
+
 function base64ToArrayBuffer(base64) {
     var binaryString = window.atob(base64);
     var binaryLen = binaryString.length;
@@ -24,8 +36,13 @@ var sampleArr = base64ToArrayBuffer(enc);
 
 var loadingTask = pdfjsLib.getDocument(sampleArr);
 loadingTask.promise.then(
-  function(pdf) {
+  function(pdf) {	
+	progressBar.increase(20);
+	//setInterval(function(){progressBar.increase(20)},300);
+		
     pdf.getPage(1).then(function(page) {
+      
+      progressBar.increase(20);
       var scale = 10;
       var viewport = page.getViewport(scale);
 
@@ -55,14 +72,20 @@ loadingTask.promise.then(
 
 var cropper;
 function loadCropperScript() {
+  progressBar.increase(20);
   const image = $('#pdf_canvas')[0];
   cropper = new Cropper(image,{
     background: false,
     preview: '.crop_preview',
     autoCropArea: 0.40,
     aspectRatio: 16 / 9,
-    viewMode:1
+    viewMode:1,
+    ready() {
+    	progressBar.finish();
+    	$('#top_progress_bar').remove();
+    }
   });
+  
 
 }
 
