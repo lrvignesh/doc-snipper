@@ -40,12 +40,12 @@
 	<form action="getCustomerDoc" method="post">
 		<div class="entry_details">
 			<span> Account Number </span>
-			<span><input type="text" name="accNo" required="required"></span>
+			<span><input type="text" name="accNo" required="required" maxlength="10"></span>
 			
 			<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 						
 			<span> Sort Code </span>
-			<span><input type="text" name="sortCode" required="required"></span>
+			<span><input type="text" name="sortCode" required="required" maxlength="6"></span>
 			
 		</div>	
 		<br>
